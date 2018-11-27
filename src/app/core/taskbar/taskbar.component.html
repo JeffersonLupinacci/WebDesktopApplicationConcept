@@ -1,0 +1,14 @@
+<div class="taskBar">
+
+  <div class="searchMenuButton" (click)="toggleMenu()" pTooltip="Click to Search">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </div>
+
+  <ul class="menu" id="items" *ngFor="let item of windowList()" (dragover)="dragOver($event)" (drop)="drop($event)" (dragleave)="dragLeave($event)">
+    <li class="menuItem" [ngClass]="item.isFocused() ? 'focusedItem' : 'unFocusedItem' " (click)="focusWindow(item)" (dragstart)="dragStart($event)" draggable="true" [attr.data-order]="item.getTaskOrder()">
+      <div class="fullBox {{item.getIconColor()}} {{item.getIcon()}}" [attr.data-color]="item.getIconColor()" pTooltip="{{item.getCaption()}}">
+      </div>
+    </li>
+  </ul>
+
+</div>

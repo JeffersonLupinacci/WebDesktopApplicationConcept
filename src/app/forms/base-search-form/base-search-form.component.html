@@ -1,0 +1,76 @@
+<div #searchContent style="height: 100%">
+    
+    <!--Action Bar -->
+    <div class="actionBar-content" #actionbarContent>
+        <div class="actionBar-left">
+            <ul>
+                <li style="float:left"><p-multiSelect [options]="cols" optionLabel="header" [(ngModel)]="selectedColumns" (onChange)="changeColumns()" appendTo="body" selectedItemsLabel="{0} Column(s)"  defaultLabel="Columns"></p-multiSelect></li>      
+                <p-menu #menu popup="popup" [model]="exportItems" appendTo="body"></p-menu>            
+                <li style="float:right; padding-right: 0px;"><button pButton type="button" icon="fa fa-search-plus" class="ui-button-secondary" pTooltip="Search Plus" tooltipPosition="bottom" (click)="searchPlusToggle()" ></button></li>      
+                <li [ngStyle]="{'float': 'right', 'display': showSearchPlus ? 'none' : 'inline' }"><button pButton type="button" icon="fa fa-search" class="ui-button-secondary" pTooltip="Search" tooltipPosition="bottom" ></button></li>
+                <li [ngStyle]="{'float': 'right', 'display': showSearchPlus ? 'none' : 'inline' }"><input pInputText type="text" placeholder="Search..." pTooltip="Type a text and press [Enter]" tooltipPosition="bottom" (keyup.enter)="search($event.target.value)" /></li>
+                <li style="float:right"><button pButton type="button" icon="fa fa-chevron-down" class="ui-button-secondary" pTooltip="Actions" tooltipPosition="bottom" (click)="menu.toggle($event)"></button></li>
+                <li style="float:right"><button pButton type="button" icon="fa fa-trash " class="ui-button-secondary" (click)="deleteClick()" [disabled]="!canDelete" pTooltip="Remove" tooltipPosition="bottom" ></button></li>
+                <li style="float:right"><button pButton type="button" icon="fa fa-pencil" class="ui-button-secondary" [disabled]="!canEdit" pTooltip="Edit" tooltipPosition="bottom" ></button></li>
+                <li style="float:right"><button pButton type="button" icon="fa fa-plus" class="ui-button-secondary" pTooltip="Add" tooltipPosition="bottom" ></button></li>           
+            </ul>
+        </div>
+    </div>
+
+    <div [ngStyle]="{'padding':'0px', 'margin':'0px', 'display': showSearchPlus ? 'inline-block': 'none' }" #actionbarFilters>
+        <div style="float:none;">
+            <table style="width: 100%; padding: 0px; margin: 0px; display: inline-block; margin-bottom: 5px; ">
+                <app-base-search-filter-form [fields]="cols"></app-base-search-filter-form>
+                <app-base-search-filter-form [fields]="cols"></app-base-search-filter-form>
+            </table>                   
+          </div>            
+    </div>
+
+    <!--Search Data Table -->
+    <div style="width: 100%; overflow: hidden; height: 100%;" [ngStyle]="{'max-height': gridHeight}" >
+        
+        <p-table #table      
+            [value]="dataSource"   
+            [loading]="loading"    
+            [columns]="selectedColumns" 
+            [paginator]="true" 
+            [rows]="20" 
+            [reorderableColumns]="true" 
+            [scrollable]="true"
+            [lazy]="true" 
+            [(selection)]="selectedRecord"            
+            (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)"
+            scrollHeight="100%" selectionMode="single" class="table-scroll"            
+            (onLazyLoad)="loadLazy($event)" >
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" pReorderableColumn [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" >
+                <tr [pSelectableRow]="rowData">
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                </tr>
+            </ng-template>        
+        </p-table>
+    
+        
+    </div>
+    <p-paginator #paginator         
+        [rowsPerPageOptions]="[5, 10, 20, 50, 100, 200, 500]" 
+        (onPageChange)="paginate($event)"
+        dropdownAppendTo="body" (templateLeft)="templateLeft">
+    
+        <ng-template pTemplate="templateLeft">
+                Showing {{totalRecords < 1 ? 0 : first + 1}} to 
+                {{totalRecords > 0 ? ((rows+ first) <= totalRecords ? (rows + first) : 
+                totalRecords) : 0}} of {{totalRecords ? totalRecords : 0}} entries  
+              </ng-template>
+    </p-paginator>
+    
+</div>

@@ -1,0 +1,17 @@
+<div class="searchMenu noSelect" [hidden]="!visible">
+      <div class="searchContainer">
+            <div class="searchBox">
+                  <span class="icon">
+                        <i class="fa fa-search"></i>
+                  </span>
+                  <input type="search" id="search" tabindex="0" placeholder="Type here to search... [CTRL + SPACE]" #searchControl (keyup)="onKeyUp($event)" autocomplete="off" />
+            </div>
+            <div class="searchItems">
+                  <ul *ngFor="let item of this.windowElementList | filterWindowPipe: searchControl.value; let i = index" role="menu" aria-label="menu">
+                        <li class="searchItem" (click)="createWindow(item)" role="menuitem" tabIndex="{{i+1}}">
+                              <i class="{{item.getIcon()}}"></i><br> {{item.getCaption()}}
+                        </li>
+                  </ul>
+            </div>
+      </div>
+</div>

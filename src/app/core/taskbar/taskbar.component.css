@@ -1,0 +1,78 @@
+.taskBar {
+    width: 66px;
+    height: 100%;
+    background-color: rgba(30, 37, 48, 0.8);
+    float: left;
+    z-index: 10;
+    position: relative;
+    cursor: default;
+}
+
+.menu {
+    cursor: default;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.menu .menuItem {
+    border-left: 2px solid rgba(0, 0, 0, 0.0);
+    width: 58px;    
+    overflow: hidden;
+    padding-left: 2px;
+    padding-right: 2px;
+    height:44px;
+    margin-bottom: 5px;
+}
+
+.menu .menuItem:hover {
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.focusedItem {
+    border-left: 2px solid #fff !important;
+}
+
+.unFocusedItem {
+    border-left: 2px solid rgba(0, 0, 0, 0.0);
+}
+
+.menu .menuItem .fullBox {
+    height: 24px;
+    width: 25px;
+    margin-left: 1px;
+    border-radius: 3px 3px 3px 3px;
+    overflow: hidden;
+    font-size: 22px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 15px;
+    color: rgba(30, 37, 48, 0.8);
+}
+
+.menu .menuItem .emptyBox {
+    height: 22px;
+    width: 25px;
+    margin-left: 1px;
+    border: dashed 1px gray;
+    border-radius: 3px 3px 3px 3px;
+    overflow: hidden;
+    font-size: 22px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 15px;
+    background-color: rgba(30, 37, 48, 0.8) !important;
+    color: transparent;
+}
+
+.searchMenuButton {
+    color: gray;
+    font-size: 25px;
+    padding: 20px;
+}
+
+.searchMenuButton:hover {
+    color: white;
+}

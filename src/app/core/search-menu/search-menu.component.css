@@ -1,0 +1,108 @@
+.searchMenu {
+    width: 100%;
+    height: 100%;
+    left: 65px;
+    background-color: rgba(30, 37, 48, 0.8);
+    z-index: 10;
+    position: absolute;
+}
+
+.searchContainer {
+    margin-top: 60px !important;
+    margin-left: 60px !important;
+    width: calc(90% - 70px);
+    width: -moz-calc(90% - 70px);
+    width: -webkit-calc(90% - 70px);
+}
+
+.searchBox {
+    height: 50px;
+    color: #fff;
+}
+
+.searchBox .icon {
+    position: absolute;
+    margin-left: 17px;
+    margin-top: 17px;
+    z-index: 1;
+    color: rgba(207, 207, 207, 0.8);
+}
+
+.searchBox input#search {
+    width: 100%;
+    height: 50px;
+    border: solid 1px rgb(24, 29, 37);
+    background-color: rgba(30, 37, 48, 0.8);
+    border: none;
+    float: left;
+    color: #fff !important;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-family: Lato;
+    font-feature-settings: 'liga' 0, 'clig' 0;
+    font-size: 21px;
+    font-style: normal;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
+}
+
+.searchBox input#search:hover, .searchBox input#search:focus, .searchBox input#search:active {
+    outline: none;
+    background-color: rgb(24, 29, 37);
+    color: #fff;
+}
+
+.searchItems {
+    padding: 0px !important;
+    margin: 0px !important;
+    height: 100%;
+    list-style: none;
+}
+
+.searchItems .searchItem {
+    border: solid 1px rgba(24, 29, 37, 0);
+    background-color: rgba(30, 37, 48, 0.8);
+    width: 150px;
+    overflow: hidden;
+    cursor: default;
+    list-style: none;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    border-radius: 6px 6px 6px 6px;
+    float: left;
+    text-align: center;
+    color: rgba(207, 207, 207, 0.8);
+    font-family: Lato;
+    font-feature-settings: 'liga' 0, 'clig' 0;
+    font-size: 15px;
+    font-style: normal;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
+}
+
+.searchItems .searchItem:hover {
+    border: solid 1px rgb(24, 29, 37);
+    outline: none;
+    background-color: rgb(24, 29, 37);
+    color: #fff;
+}
+
+.searchItems ul li i {
+    font-size: 50px;
+}
+
+.focus-background {
+    background-color: lightblue;
+  }

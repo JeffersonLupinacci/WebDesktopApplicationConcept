@@ -1,0 +1,27 @@
+<div class="window"  [ngClass]="cssClass" [ngStyle]="{'top': position.Y + 'px', 'left': position.X + 'px', 'width' : position.width + 'px', 'height' : position.height + 'px', 'z-index': position.zIndex, 'position':'absolute'}">
+
+  <div class="header" (mousedown)="windowMoveMouseDown($event)" (dblclick)="windowMaximizeDoubleClick($event)">
+    <div class="header-content">
+      <span class="caption">
+        <i class="{{this.getIcon()}}"></i> {{props.caption}}</span>
+      <span class="headerButtons">
+        <span class="headerButton" (click)="minimize()">
+          <i class="minimize"></i>
+        </span>
+        <span class="headerButton" (click)="maximize()">
+          <i class="maximize"></i>
+        </span>
+        <span class="headerButton" (click)="close()">
+          <i class="close"></i>
+        </span>
+      </span>
+    </div>
+  </div>
+
+  <div class="body" (mousemove)="windowsResizeMouseOver($event)" (mousedown)="windowResizeMouseDown($event)" [ngStyle]="{'cursor': props.cursorCSS }" >
+    <div class="body-content" >
+      <html-reference #body></html-reference>
+    </div>
+  </div>
+
+</div>

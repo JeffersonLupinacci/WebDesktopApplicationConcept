@@ -1,0 +1,24 @@
+<div class="popupContainer">
+
+  <div class="window window-popup" [ngStyle]="{'top': position.Y + 'px', 'left': position.X + 'px', 'width' : position.width + 'px', 'height' : position.height + 'px', 'position':'absolute'}">
+
+    <div class="header">
+      <div class="header-content">
+        <span class="caption">
+          <i class="{{this.getIcon()}}"></i> {{this.getCaption()}}</span>
+        <span class="headerButtons">
+          <span class="headerButton" (click)="close()">
+            <i class="close"></i>
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="body-content">
+        <html-reference #body></html-reference>        
+      </div>      
+    </div>
+
+  </div>
+</div>

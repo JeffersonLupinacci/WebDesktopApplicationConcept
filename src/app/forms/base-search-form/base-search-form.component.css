@@ -1,0 +1,51 @@
+.actionBar-content {
+    border-bottom: 1px solid #eeeeee;
+    height: 30px;
+    padding-bottom: 2px;
+    user-select: none;
+    overflow: hidden;
+}
+
+.actionBar-left {
+    float: right;
+}
+
+.actionBar-right {
+    float: left;
+}
+
+.actionBar-left ul, .actionBar-right ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.actionBar-left .ui-button.ui-button-secondary, .actionBar-left .ui-button.ui-button-secondary {
+    color: rgb(82, 77, 77);
+}
+
+.actionBar-left li, .actionBar-right li {
+    display: inline-block;
+    vertical-align: middle;
+    list-style: none;
+    padding-bottom: 5px;    
+}
+
+.actionBar-right li {
+    padding-right: 5px;
+}
+
+.actionBar-left li {
+    padding-right: 5px;
+}
+
+.actionBar-left li:last-child {
+    padding-right: 0px;
+}
+
+.actionBar-left li:nth-last-child(2) {
+    padding-right: 0px;
+}
+
+.searchTable-container {
+    margin-top: 2px;
+}

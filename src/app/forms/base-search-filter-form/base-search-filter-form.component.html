@@ -1,0 +1,32 @@
+<tr style="width:100%; height:30px; padding: 0px; margin: 0px; ">
+
+  <td style="width: 25%;">
+    <p-dropdown [(ngModel)]="selected" [options]="fields" [filter]="true" [style]="{'min-width':'150px', 'width':'100%'}" optionLabel="header"
+      placeholder="select a filter" (onChange)="selectedChanged()" filterBy="header">
+    </p-dropdown>
+  </td>
+
+  <td style="width: 25%;">
+    <p-dropdown [(ngModel)]="conditional" [options]="conditionalType" [filter]="true" [style]="{'min-width':'150px', 'width':'100%'}"
+      *ngIf="selected !== undefined" optionLabel="name" filterBy="name">
+    </p-dropdown>
+  </td>
+
+  <td style="width: 48%;">
+    <input pInputText [(ngModel)]="value" [style]="{'width':'100%'}" *ngIf="conditional !== undefined && conditional.name !== 'In' "
+      type="text" />
+
+    <p-chips [(ngModel)]="values" [style]="{'width':'100%'}" allowDuplicate="false" *ngIf="conditional !== undefined && conditional.name === 'In' "></p-chips>
+  </td>
+
+  <td style="width: 1%;">
+    <button pButton *ngIf="selected !== undefined" type="button" icon="fa fa-plus-square-o" class="ui-button-secondary" pTooltip="Plus"
+      tooltipPosition="bottom"></button>
+  </td>
+
+  <td style="width: 1%;">
+    <button pButton *ngIf="selected !== undefined" type="button" icon="fa fa-minus-square-o" class="ui-button-secondary" pTooltip="Minus"
+      tooltipPosition="bottom"></button>
+  </td>
+
+</tr>

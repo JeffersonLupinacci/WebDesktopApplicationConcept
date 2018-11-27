@@ -1,0 +1,12 @@
+<style>
+  .ui-terminal{
+    height: 50px !important;
+}
+</style>
+
+
+  <p-terminal welcomeMessage="SQL Terminal, welcome" prompt="$"></p-terminal>
+
+<div>
+  <p-dataTable [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" sortable="true"></p-dataTable>
+</div>
